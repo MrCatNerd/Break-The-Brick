@@ -8,9 +8,9 @@ pygame.init()
 
 
 class Ball:
-    def __init__(self, x, y, vel_x, vel_y, radius, color: tuple) -> None:
-        self.rect = pygame.Rect(x - radius, y - radius, radius, radius)
-        self.color = color
+    def __init__(self, img, x, y, vel_x, vel_y) -> None:
+        self.img = img
+        self.rect = self.img.get_rect(x=x, y=y)
         self.vel_x = vel_x
         self.vel_y = vel_y
 
@@ -98,4 +98,4 @@ class Ball:
         self.rect.y += dy
 
         # drawing position
-        pygame.draw.rect(window, self.color, self.rect)
+        window.blit(self.img, self.rect)

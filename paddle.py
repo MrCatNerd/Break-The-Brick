@@ -4,10 +4,11 @@ pygame.init()
 
 SLIDING_DIVIVER = 8
 
+
 class Paddle:
-    def __init__(self, x, y, width, height, color):
-        self.rect = pygame.Rect(x, y, width, height)
-        self.color = color
+    def __init__(self, img, x, y):
+        self.img = img
+        self.rect = self.img.get_rect(x=x, y=y)
 
     def update(self, window):
         mx = pygame.mouse.get_pos()[0]
@@ -16,4 +17,4 @@ class Paddle:
 
         self.rect.x += dx / SLIDING_DIVIVER
 
-        pygame.draw.rect(window, self.color, self.rect)
+        window.blit(self.img, self.rect)
