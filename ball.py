@@ -1,7 +1,7 @@
 import pygame
 import random
 
-from main import Main
+from break_the_brick import Main
 
 
 pygame.init()
